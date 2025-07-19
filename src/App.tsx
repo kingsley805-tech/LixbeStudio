@@ -1,5 +1,5 @@
-import React, { useState, useEffect, type JSX } from "react";
-import { Phone, Mail, MapPin, Sparkles, Footprints, Wind, Eye, ChevronDown, Star, Heart, Paintbrush } from "lucide-react";
+import  { useState, useEffect, type JSX } from "react";
+import { Phone, Mail, MapPin, Sparkles, Footprints, Eye, ChevronDown, Star, Heart, Paintbrush } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import logo from "./assets/pink-logo.svg";
