@@ -271,7 +271,18 @@ export default function Home(): JSX.Element {
           </button>
         </div>
       </section>
-
+<div className="flex justify-center items-center">
+  <img
+    src={logo}
+    alt="Lixbel Studio Logo"
+    className="h-24 sm:h-32 md:h-48 lg:h-56 w-auto object-contain filter brightness-110 contrast-110"
+    style={{
+      imageRendering: 'crisp-edges', // For pixel-perfect rendering
+      maxWidth: '100%',
+      height: 'auto'
+    }}
+  />
+</div>
       {/* Services Section */}
       <section id="services" className="animate-section py-24 bg-gradient-to-b from-white to-pink-50">
         <div className="max-w-6xl mx-auto px-6">
@@ -285,41 +296,29 @@ export default function Home(): JSX.Element {
               Indulge in our carefully curated beauty treatments, each designed to leave you feeling refreshed, confident, and absolutely radiant. Contact us for pricing in Ghana Cedis.
             </p>
           </div>
-          <div className="grid md:grid-cols-2 gap-8">
-            {services.map((service: Service, index: number) => (
-              <Card
-                key={service.title}
-                className={`group hover:shadow-2xl transition-all duration-500 border-0 bg-white/80 backdrop-blur-sm rounded-2xl hover:bg-white ${
-                  isVisible.services ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-                }`}
-                style={{ transitionDelay: `${index * 150}ms` }}
-              >
-                <CardContent className="p-8">
-                  <div className="flex items-start space-x-6">
-                    <div className="flex-shrink-0 w-16 h-16 bg-pink-100 rounded-full flex items-center justify-center group-hover:scale-110 group-hover:bg-pink-200 transition-all duration-300">
-                      {service.icon}
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="text-2xl font-serif font-bold text-gray-900 mb-3">
-                        {service.title}
-                      </h3>
-                      <p className="text-gray-600 mb-4 leading-relaxed">
-                        {service.description}
-                      </p>
-                      <Button
-                        variant="outline"
-                        size="sm"
-                        className="border-pink-300 text-pink-600 hover:bg-pink-50"
-                        onClick={() => scrollToSection('contact')}
-                      >
-                        Get Quote
-                      </Button>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
+
+         <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6">
+  {services.map((service: Service, index: number) => (
+    <div key={service.title} className={`group relative overflow-hidden rounded-xl bg-white/90 backdrop-blur-md border border-white/20 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-[1.02] ${isVisible.services ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{transitionDelay: `${index * 150}ms`}}>
+      <div className="absolute inset-0 bg-gradient-to-br from-pink-50/0 to-blue-50/0 group-hover:from-pink-50/30 group-hover:to-blue-50/30 transition-all duration-500" />
+      <div className="relative p-4 sm:p-6">
+        <div className="flex items-start gap-4">
+          <div className="flex-shrink-0 w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-pink-100 to-pink-200 rounded-xl flex items-center justify-center group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+            <div className="text-pink-600">{service.icon}</div>
           </div>
+          <div className="flex-1 min-w-0">
+            <h3 className="text-lg sm:text-xl font-serif font-bold text-gray-900 mb-2">{service.title}</h3>
+            <p className="text-sm sm:text-base text-gray-600 mb-3 leading-relaxed">{service.description}</p>
+            <button onClick={() => scrollToSection('contact')} className="inline-flex items-center gap-2 px-3 py-1.5 text-xs sm:text-sm font-medium text-pink-600 bg-pink-50 border border-pink-200 rounded-lg hover:bg-pink-100 hover:border-pink-300 transition-all duration-200">
+              <span>Get Quote</span>
+              <svg className="w-3 h-3 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  ))}
+</div>
         </div>
       </section>
 
@@ -365,61 +364,80 @@ export default function Home(): JSX.Element {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="animate-section py-24 bg-gradient-to-b from-white to-pink-100">
-        <div className="max-w-4xl mx-auto px-6">
-          <div className={`text-center mb-12 transition-all duration-1000 ${
-            isVisible.contact ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-          }`}>
-            <h2 className="text-4xl lg:text-5xl font-serif font-bold text-gray-900 mb-6">
-              Schedule Your Visit
-            </h2>
-            <p className="text-xl text-gray-600">
-              Ready for your transformation? Contact us to book an appointment and get pricing in Ghana Cedis.
-            </p>
-          </div>
-          <Card className={`bg-white/90 backdrop-blur-sm border-0 shadow-2xl rounded-2xl transition-all duration-1000 delay-300 ${
-            isVisible.contact ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-          }`}>
-            <CardContent className="p-10">
-              <div className="grid md:grid-cols-1 gap-6">
-                <div className="flex items-center space-x-4 p-4 rounded-xl bg-pink-50 hover:bg-pink-100 transition-colors duration-300">
-                  <div className="w-12 h-12 bg-pink-500 rounded-full flex items-center justify-center">
-                    <Phone className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <div className="font-semibold text-gray-900">Call Us Directly</div>
-                    <a href="tel:0592185706" className="text-pink-600 font-medium text-lg">0592185706</a>
-                  </div>
-                </div>
-                <div className="flex items-center space-x-4 p-4 rounded-xl bg-pink-50 hover:bg-pink-100 transition-colors duration-300">
-                  <div className="w-12 h-12 bg-pink-500 rounded-full flex items-center justify-center">
-                    <Mail className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <div className="font-semibold text-gray-900">Send an Email</div>
-                    <a href="mailto:contact@lixbelstudio.com" className="text-pink-600 font-medium text-lg">contact@lixbelstudio.com</a>
-                  </div>
-                </div>
-                <div className="flex items-center space-x-4 p-4 rounded-xl bg-pink-50 hover:bg-pink-100 transition-colors duration-300">
-                  <div className="w-12 h-12 bg-pink-500 rounded-full flex items-center justify-center">
-                    <MapPin className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <div className="font-semibold text-gray-900">Visit Our Studio</div>
-                    <div className="text-pink-600 font-medium text-lg">Amasaman-Afiaman, Kingdom</div>
-                  </div>
-                </div>
-              </div>
-              <Button
-                onClick={() => {}}
-                className="w-full mt-8 bg-gradient-to-r from-pink-500 to-pink-600 hover:from-pink-600 hover:to-pink-700 text-white px-8 py-4 text-lg rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+<section id="contact" className="animate-section py-16 sm:py-24 bg-gradient-to-b from-white to-pink-100">
+  <div className="max-w-4xl mx-auto px-4 sm:px-6">
+    <div className={`text-center mb-8 sm:mb-12 transition-all duration-1000 ${
+      isVisible.contact ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+    }`}>
+      <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-gray-900 mb-4 sm:mb-6">
+        Schedule Your Visit
+      </h2>
+      <p className="text-lg sm:text-xl text-gray-600 px-2">
+        Ready for your transformation? Contact us to book an appointment and get pricing in Ghana Cedis.
+      </p>
+    </div>
+    <Card className={`bg-white/90 backdrop-blur-sm border-0 shadow-2xl rounded-2xl transition-all duration-1000 delay-300 ${
+      isVisible.contact ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+    }`}>
+      <CardContent className="p-6 sm:p-8 lg:p-10">
+        <div className="grid grid-cols-1 gap-4 sm:gap-6">
+          {/* Phone Contact */}
+          <div className="flex items-center space-x-3 sm:space-x-4 p-3 sm:p-4 rounded-xl bg-pink-50 hover:bg-pink-100 transition-colors duration-300">
+            <div className="w-10 h-10 sm:w-12 sm:h-12 bg-pink-500 rounded-full flex items-center justify-center flex-shrink-0">
+              <Phone className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
+            </div>
+            <div className="min-w-0 flex-1">
+              <div className="font-semibold text-gray-900 text-sm sm:text-base">Call Us Directly</div>
+              <a 
+                href="tel:0592185706" 
+                className="text-pink-600 font-medium text-base sm:text-lg hover:text-pink-700 transition-colors duration-200 block"
               >
-                Book Your Appointment Now
-              </Button>
-            </CardContent>
-          </Card>
+                0592185706
+              </a>
+            </div>
+          </div>
+
+          {/* Email Contact */}
+          <div className="flex items-center space-x-3 sm:space-x-4 p-3 sm:p-4 rounded-xl bg-pink-50 hover:bg-pink-100 transition-colors duration-300">
+            <div className="w-10 h-10 sm:w-12 sm:h-12 bg-pink-500 rounded-full flex items-center justify-center flex-shrink-0">
+              <Mail className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
+            </div>
+            <div className="min-w-0 flex-1">
+              <div className="font-semibold text-gray-900 text-sm sm:text-base">Send an Email</div>
+              <a 
+                href="mailto:contact@lixbelstudio.com" 
+                className="text-pink-600 font-medium text-sm sm:text-lg hover:text-pink-700 transition-colors duration-200 break-all sm:break-normal"
+              >
+                contact@lixbelstudio.com
+              </a>
+            </div>
+          </div>
+
+          {/* Location */}
+          <div className="flex items-center space-x-3 sm:space-x-4 p-3 sm:p-4 rounded-xl bg-pink-50 hover:bg-pink-100 transition-colors duration-300">
+            <div className="w-10 h-10 sm:w-12 sm:h-12 bg-pink-500 rounded-full flex items-center justify-center flex-shrink-0">
+              <MapPin className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
+            </div>
+            <div className="min-w-0 flex-1">
+              <div className="font-semibold text-gray-900 text-sm sm:text-base">Visit Our Studio</div>
+              <div className="text-pink-600 font-medium text-base sm:text-lg">
+                Amasaman-Afiaman, Kingdom
+              </div>
+            </div>
+          </div>
         </div>
-      </section>
+        
+        {/* CTA Button */}
+        <Button
+          onClick={() => {}}
+          className="w-full mt-6 sm:mt-8 bg-gradient-to-r from-pink-500 to-pink-600 hover:from-pink-600 hover:to-pink-700 text-white px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 active:scale-95"
+        >
+          Book Your Appointment Now
+        </Button>
+      </CardContent>
+    </Card>
+  </div>
+</section>
 
       {/* Footer */}
       <footer className="bg-gray-900 text-white py-12">
