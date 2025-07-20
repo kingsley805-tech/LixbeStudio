@@ -82,7 +82,7 @@ export default function Home(): JSX.Element {
       size: "small"
     },
     {
-      src: "https://images.unsplash.com/photo-1610992015732-2449b76344bc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+      src: "https://images.pexels.com/photos/2701767/pexels-photo-2701767.jpeg",
       alt: "Professional nail art with intricate designs",
       size: "medium"
     },
@@ -271,11 +271,11 @@ export default function Home(): JSX.Element {
           </button>
         </div>
       </section>
-<div className="flex justify-center items-center">
+<div className="flex justify-center items-center w-full">
   <img
     src={logo}
     alt="Lixbel Studio Logo"
-    className="h-24 sm:h-32 md:h-48 lg:h-56 w-auto object-contain filter brightness-110 contrast-110"
+    className="h-24 sm:h-32 md:h-48 lg:h-56 w-auto object-contain filter brightness-110 contrast-110 mx-auto"
     style={{
       imageRendering: 'crisp-edges', // For pixel-perfect rendering
       maxWidth: '100%',
